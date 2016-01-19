@@ -1,0 +1,180 @@
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Avenir Next, Lucida Grande", Helvetica, Arial, sans-serif;
+    color: white;
+    background: radial-gradient(45% 103%, #88CACC 4%, #48799F 100%) no-repeat fixed;
+}
+
+a {
+    color: #00B7FF;
+}
+
+#search-panel {
+    border-left: 1px solid rgba(234, 234, 234, 0.51);
+    position: absolute;
+    right: 0;
+    left: 70%;
+    bottom: 200px;
+    top: 0;
+    overflow: auto;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+#volume-slider {
+    float: right;
+    width: 200px;
+    margin: 35px 25px 0;
+}
+
+#search-panel .input {
+    padding: 15px;
+}
+
+#search-input {
+    width: 80%;
+    height: 30px;
+}
+
+#search-btn {
+    float: right;
+    height: 30px;
+    padding: 0.3em;
+}
+
+#play-list {
+    position: absolute;
+    bottom: 200px;
+    top: 0;
+    float: left;
+    width: 70%;
+    padding-top: 15px;
+    overflow: auto;
+}
+
+#play-list .button {
+    width: 25px;
+    height: 25px;
+    font-size: 7pt;
+    float: right;
+}
+
+#play-list table tr td.active {
+    background-color: rgba(11, 149, 192, 0.25);
+}
+
+#play-list table tr td {
+    cursor: pointer;
+}
+
+.display-hover {
+    visibility: hidden;
+}
+
+#play-list tr td:hover .display-hover {
+    visibility: visible;
+}
+
+table tr th {
+    padding: 10px 15px;
+    font-size: 17pt;
+    text-align: left;
+    font-weight: lighter;
+}
+
+table tr td {
+    padding: 10px 25px;
+    border-top: 1px solid rgba(234, 234, 234, 0.51);
+}
+
+#play-list tr:last-child td {
+    border-bottom: 1px solid rgba(234, 234, 234, 0.51);
+}
+
+input[type="text"] {
+    padding: 0.2em 0.5em;
+    background: rgba(255, 254, 255, 0.93);
+    font: 12px "Avenir Next, Lucida Grande", Helvetica, Arial, sans-serif;
+    border: 1px solid #D8E9F3;
+    border-radius: 3px;
+    color: #4A4A4A;
+    line-height: 19px;
+}
+
+.container {
+    background: rgba(251, 255, 254, 0.4);
+    box-shadow: 14px 10px 16px 0 rgba(31, 54, 76, 0.10);
+    margin: auto;
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    min-width: 500px;
+    position: absolute;
+}
+
+.track-item:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#player {
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* Rectangle 8: */
+    background-color: rgba(118, 151, 211, 0.14);
+    background-blend-mode: overlay;
+    /*border-top: solid rgba(31, 54, 76, 0.10) thin;*/
+}
+
+#player #control {
+    margin: 10px;
+    float: left;
+    height: 100%;
+    padding-right: 20px;
+}
+
+.button {
+    margin: 3px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: transparent;
+    background-image: linear-gradient(rgba(235, 235, 243, 0.16) 0%, rgba(203, 221, 227, 0.33) 100%);
+    border: 1px solid rgba(249, 249, 249, 0.65);
+    color: white;
+    font-size: 16pt;
+}
+
+.button:hover {
+    background-color: rgba(96, 193, 202, 0.28);
+}
+
+.button.small {
+    width: 50px;
+    height: 50px;
+    font-size: 9pt;
+}
+
+#search-panel button {
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+}
+
+#player #info {
+    padding: 10px;
+}
+
+.rz-bubble {
+    visibility: hidden;
+}

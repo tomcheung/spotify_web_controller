@@ -1,0 +1,55 @@
+doctype html
+html(lang="eng" ng-app="player")
+    head
+        title Spotify Remote Player
+        script(src='/socket.io/socket.io.js')
+        script(src='/public/javascripts/angular.min.js')
+        script(src='/public/javascripts/rzslider.js')
+        script(src='/public/javascripts/socket.min.js')
+        script(src='/public/javascripts/player.js')
+        link(rel='styleSheet' href='/public/stylesheets/style.css')
+        link(rel='styleSheet' href='/public/stylesheets/rzslider.css')
+        link(rel='styleSheet' href='/public/stylesheets/font-awesome.css')
+    body
+        div.container
+            div
+                div#play-list(ng-controller="playlistController as playlistCtrl")
+                    table(width="100%")
+                        tr
+                            th Playlist
+                            th
+                                button.button(ng-click="shuffle()"): span.fa.fa-random
+                        tr.track-item(ng-repeat="item in playlist track by $index")
+                            td(colspan="2" ng-class="trackActive($index)", ng-click="playTrack(item.track_id)")
+                                span.track-name {{item.name}} - {{item.artist}}
+                                button.button.display-hover(ng-click="removeTrack($index);$event.stopPropagation()"): span.fa.fa-remove
+                div#search-panel(ng-controller="searchController as searchCtrl")
+                    form.input(ng-submit="search()")
+                        input#search-input(type="text" ng-model="keyword")
+                        button#search-btn.button
+                            span(class="fa fa-search")
+                    span {{loading}}
+                    table(width="100%")
+                        tr.track-item(ng-repeat="item in searchResult track by $index")
+                            td(ng-click="addToPlayList(item)") {{item.name}} - {{item.artist}}
+
+                div.clear-fix
+
+            div#player(ng-controller="playerController as player")
+                div#control
+                    button.button.small(ng-click="control('prev')")
+                        span(class="fa fa-fast-backward")
+
+                    button.button(ng-click="control('play_pause')")
+                        span(class="fa" ng-class="play_btn_status")
+
+                    button.button.small(ng-click="control('next')")
+                        span(class="fa fa-fast-forward")
+
+                div#volume-slider Volume
+                    rzslider(rz-slider-model="player.volume", rz-slider-options="volumeSliderOption")
+
+                div#info
+                    p#track_name {{player.current_track}} - {{player.current_artist}}
+                    p#timer {{player.current_pos|date:"mm:ss"}}
+                    rzslider(rz-slider-model="player.progress", rz-slider-options="sliderOption")
